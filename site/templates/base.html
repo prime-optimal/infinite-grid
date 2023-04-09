@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Video Player{% endblock %}</title>
+    <!-- Add your CSS files and other assets here -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}">
+
+	</head>
+<body>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <!-- Add your JavaScript files and other scripts here -->
+	<script type="text/javascript" src="{{ url_for('static', filename='js/FWDIGP.js') }}"></script>
+	<script type="text/javascript">
+		
+		FWDIGPUtils.onReady(function(){
+			
+			new FWDIGP({
+
+				// Main settings.
+				rightClickContextMenu:"developer",
+				instanceName:"myIGP0",
+				parentId:"myDiv",
+				mainFolderPath:"content",
+				galleryId:"myGallery",
+				displayType:"responsive",
+				dragDirection:"both",
+				initializeOnlyWhenVisible:"no",
+				thumbnailTransitionType:"motion",
+				autoScale:"yes",
+				paralax:"no",
+				autoScroll:"no",
+				autoScrollDirection:"right",
+				autoScrollSpeed:2,
+				enableVisitedThumbnails:"no",
+				visitedThumbnailsOverlayOpacity:.2,
+				showLookScrollButton:"yes",
+				keepThumbnailsOriginalSizeOnGridStart:"no",
+				addZoomSupport:"yes",
+				addDragAndSwipeSupport:"yes",
+				disableThumbnailInteractivity:"no",
+				showThumbnailOverlay:"yes",
+				showThumbnailIcon:"yes",
+				openOnSingleTouch:"no",
+				showCaption:"yes",
+				showCaptionOnThumbVideo:"yes",
+				maxWidth:1920,
+				maxHeight:900,
+				offsetWidth:700,
+				minHeight:400,
+				thumbnailMaxWidth:489,
+				thumbnailMaxHeight:321,
+				maxScale:1.6,
+				minScale:.8,
+				backgroundColor:"#f7f6fc",
+				thumbnailBackgroundColor:"#eeecf9",
+				thumbnailOverlayColor:"#000000",
+				thumbnailOverlayOpacity:.6,
+
+				// Categories select box settings.
+				showGalleriesMenu:"yes",
+				galleriesMenuSelectLabel:"Select galleries",
+				allGalleriesMenuLabel:"All galleries (mixed)",
+				showAllGalleries:"yes",
+				randomizeGalleries:"yes",
+				startAtGallery:1,
+
+				// Video player in thumbs.
+				useVideoInThumb:"yes",
+				vdPreloaderBkColor:"#2e2e2e",
+				vdPreloaderFillColor:"#FFFFFF",
+				vdFillEntireVideoScreen:"yes",
+				vdUseKeyboard:"yes",
+				vdVolume:1,
+				vdBackgroundColor:"#000000",
+				vdShowLogo:"yes",
+				vdLogoPath:"",
+				vdLogoLink:"",
+				vdButtonsHideDelay:5,
+				vdShowScrubberWhenControllerIsHidden:"yes",
+				vdShowVolumeButton:"yes",
+				vdShowVolumeScrubber:"yes",
+				vdShowTime:"yes",
+				vdShowRewindButton:"no",
+				vdShowFullScreenButton:"yes",
+				vdShowScrubberToolTipLabel:"yes",
+				vdTimeColor:"#B9B9B9",
+				vdScrubbersToolTipLabelBackgroundColor:"#FFFFFF",
+				vdScrubbersToolTipLabelFontColor:"#5a5a5a",
+				vdShowPlaybackRateButton:"no",
+				vdThumbnailsPreviewWidth:110,
+				vdThumbnailsPreviewBackgroundColor:"#2e2e2e",
+				vdThumbnailsPreviewBorderColor:"#414141",
+				vdThumbnailsPreviewLabelBackgroundColor:"#414141",
+				vdThumbnailsPreviewLabelFontColor:"#CCCCCC",
+
+				// Ligtbox settings (optional).
+				useLightbox:"yes",
+				rlUseDeepLinking:"yes",
+				rlItemBackgroundColor:"#212121",
+				rlDefaultItemWidth:1527,
+				rlDefaultItemHeight:859,
+				rlItemOffsetHeight:37,
+				rlItemOffsetHeightButtonsTop:47,
+				rlItemBorderSize:0,
+				rlItemBorderColor:"#FFFFFF",
+				rlMaxZoom:1.2,
+				rlPreloaderBkColor:"#2e2e2e",
+				rlPreloaderFillColor:"#FFFFFF",
+				rlButtonsAlignment:"in",
+				rlButtonsHideDelay:5,
+				rlMediaLazyLoading:"yes",
+				rlUseDrag:"yes",
+				rlUseAsModal:"no",
+				rlShowSlideShowButton:"yes",
+				rlShowSlideShowAnimation:"yes",
+				rlSlideShowAutoPlay:"no",
+				rlSlideShowAutoStop:"no",
+				rlSlideShowDelay:6,
+				rlSlideShowBkColor:"#2e2e2e",
+				rlSlideShowFillColor:"#FFFFFF",
+				rlUseKeyboard:"yes",
+				rlUseDoubleClick:"yes",
+				rlShowCloseButton:"yes",
+				rlShowFullscreenButton:"yes",
+				rlShowZoomButton:"yes",
+				rlShowCounter:"yes",
+				rlShowNextAndPrevBtns:"yes",
+				rlSpaceBetweenBtns:8,
+				rlButtonsOffsetIn:10,
+				rlButtonsOffsetOut:10,
+				rlBackgroundColor:"rgba(0,0,0,1)",
+				rlShareButtons:['facebook', 'twitter', 'linkedin', 'tumblr', 'pinterest', 'reddit', 'buffer', 'digg','blogger'],
+				rlShareText:"Share on",
+				rlSharedURL:"deeplink",
+				rlShareMainBackgroundColor:"rgba(0,0,0,.4)",
+				rlShareBackgroundColor:"#FFFFFF",
+				rlShowThumbnails:"yes",
+				rlShowThumbnailsIcon:"yes",
+				rlThumbnailsHeight:80,
+				rlThumbnailsOverlayColor:"rgba(0,0,0,.4)",
+				rlThumbnailsBorderSize:2,
+				rlThumbnailsBorderColor:"#FFFFFF",
+				rlSpaceBetweenThumbnailsAndItem:10,
+				rlThumbnailsOffsetBottom:10,
+				rlSpaceBetweenThumbnails:5,
+				rlShowCaption:"yes",
+				rlCaptionPosition:"bottomout",
+				rlShowCaptionOnSmallScreens:"no",
+				rlCaptionAnimationType:"motion",
+				rlUseVideo:"yes",
+				rlFillEntireScreenWithPoster:"yes",
+				rlFillEntireVideoScreen:"no",
+				rlVolume:1,
+				rlVideoAutoPlay:"no",
+				rlNextVideoAutoPlay:"no",
+				rlVideoAutoPlayText:"Click to unmute",
+				rlShowLogo:"yes",
+				rlLogoPath:"",
+				rlLogoLink:"",
+				rlShowDefaultControllerForVimeo:"yes",
+				rlShowScrubberWhenControllerIsHidden:"yes",
+				rlShowRewindButton:"yes",
+				rlShowVolumeButton:"yes",
+				rlShowChromecastButton:"yes",
+				rlShowPlaybackRateButton:"yes",
+				rlShowQualityButton:"yes",
+				rlVideoShowFullScreenButton:"yes",
+				rlShowScrubberToolTipLabel:"yes",
+				rlShowTime:"yes",
+				rlTimeColor:"#B9B9B9",
+				rlYoutubeQualityButtonNormalColor:"#B9B9B9",
+				rlYoutubeQualityButtonSelectedColor:"#FFFFFF",
+				rlScrubbersToolTipLabelBackgroundColor:"#FFFFFF",
+				rlScrubbersToolTipLabelFontColor:"#5a5a5a",
+				rlAudioVisualizerLinesColor:"#5948C5",
+				rlAudioVisualizerCircleColor:"#FFFFFF",
+				rlThumbnailsPreviewWidth:196,
+				rlThumbnailsPreviewBackgroundColor:"#2e2e2e",
+				rlThumbnailsPreviewBorderColor:"#414141",
+				rlThumbnailsPreviewLabelBackgroundColor:"#414141",
+				rlThumbnailsPreviewLabelFontColor:"#CCCCCC",
+				rlSkipToVideoText:"You can skip to video in: ",
+				rlSkipToVideoButtonText:"Skip Ad",
+				//preset
+				preset:''
+			});
+		});
+	</script>
+
+</body>
+</html>
