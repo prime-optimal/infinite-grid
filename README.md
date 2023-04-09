@@ -12,3 +12,5 @@ A small flask server that uses simple jinja2 templates to display:
 
 ## Updates
 04-09-23 - Site is created. 
+04-09-23 - Demo gallery works.  It's a miracle.
+
