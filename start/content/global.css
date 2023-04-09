@@ -1,0 +1,1110 @@
+/**
+ * Infinite Grid Pro PACKAGED v3.0
+ * Main CSS file.
+ *
+ * @author Tibi - FWDesign [https://webdesign-flash.ro/]
+ * Copyright © 2006 All Rights Reserved.
+ */
+
+
+
+/** 
+ * --------------------------------------------------------------------------------
+ *  1. VECTOR FONT - used for the vector skin.
+ * --------------------------------------------------------------------------------
+ */
+
+ @font-face {
+    font-family: 'fwdigp';
+    src:  url('fonts/fwdigp.eot?kx63ik');
+    src:  url('fonts/fwdigp.eot?kx63ik#iefix') format('embedded-opentype'),
+      url('fonts/fwdigp.ttf?kx63ik') format('truetype'),
+      url('fonts/fwdigp.woff?kx63ik') format('woff'),
+      url('fonts/fwdigp.svg?kx63ik#fwdigp') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+.fwdigpicon,
+[class^="fwdigpicon-"]:before,
+[class*=" fwdigpicon-"]:before {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'fwdigp' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fwdigpicon-wheel-blooked:before {
+  content: "\e922";
+}
+.fwdigpicon-wheel-unblooked:before {
+  content: "\e923";
+}
+.fwdigpicon-phone-blooked:before {
+  content: "\e924";
+}
+.fwdigpicon-phone-unblooked:before {
+  content: "\e925";
+}
+.fwdigpicon-10:before {
+  content: "\e900";
+}
+.fwdigpicon-blogger:before {
+  content: "\e901";
+}
+.fwdigpicon-buffer:before {
+  content: "\e902";
+}
+.fwdigpicon-cast:before {
+  content: "\e903";
+}
+.fwdigpicon-CC:before {
+  content: "\e904";
+}
+.fwdigpicon-CC-off:before {
+  content: "\e905";
+}
+.fwdigpicon-close:before {
+  content: "\e906";
+}
+.fwdigpicon-digg:before {
+  content: "\e907";
+}
+.fwdigpicon-facebook:before {
+  content: "\e908";
+}
+.fwdigpicon-fullscreen:before {
+  content: "\e909";
+}
+.fwdigpicon-iframe:before {
+  content: "\e90a";
+}
+.fwdigpicon-image:before {
+  content: "\e90b";
+}
+.fwdigpicon-link:before {
+  content: "\e90c";
+}
+.fwdigpicon-linkedin:before {
+  content: "\e90d";
+}
+.fwdigpicon-menu-icon:before {
+  content: "\e90e";
+}
+.fwdigpicon-next:before {
+  content: "\e90f";
+}
+.fwdigpicon-normalscreen:before {
+  content: "\e910";
+}
+.fwdigpicon-pause:before {
+  content: "\e911";
+}
+.fwdigpicon-pinterest:before {
+  content: "\e912";
+}
+.fwdigpicon-play:before {
+  content: "\e913";
+}
+.fwdigpicon-play-fill:before {
+  content: "\e914";
+}
+.fwdigpicon-prev:before {
+  content: "\e915";
+}
+.fwdigpicon-reddit:before {
+  content: "\e916";
+}
+.fwdigpicon-settings:before {
+  content: "\e917";
+}
+.fwdigpicon-share:before {
+  content: "\e918";
+}
+.fwdigpicon-sound:before {
+  content: "\e919";
+}
+.fwdigpicon-sound-off:before {
+  content: "\e91a";
+}
+.fwdigpicon-tumblr:before {
+  content: "\e91b";
+}
+.fwdigpicon-twitter:before {
+  content: "\e91c";
+}
+.fwdigpicon-vimeo:before {
+  content: "\e91d";
+}
+.fwdigpicon-watch-later:before {
+  content: "\e91e";
+}
+.fwdigpicon-youtube:before {
+  content: "\e91f";
+}
+.fwdigpicon-zoomin:before {
+  content: "\e920";
+}
+.fwdigpicon-zoomout:before {
+  content: "\e921";
+}
+
+
+
+/** 
+ * --------------------------------------------------------------------------------
+ *  2. Grid.
+ * --------------------------------------------------------------------------------
+ */
+
+
+/* General. */
+.fwdigp.clear-padding {
+    padding: 0 !important;
+}
+
+.fwdigp .PGThumbnailOverlay{
+    background-color:#FF0000;
+}
+
+.fwdigp .default-arrow-main{
+    position: relative !important;
+    overflow: visible !important;
+    margin-bottom: 28px !important;
+}
+
+.fwdigp .default-arrow{
+    position: relative !important;
+    font-size: 47px;
+    margin-left: 30px;
+    color: #FFF;
+}
+
+.fwdigp .default-arrow:before{
+    font-weight: 100 !important;
+}
+
+.fwdigp .default-categories-main{
+    position: relative !important;
+    overflow: visible !important
+}
+
+.fwdigp .default-categories-main .categories{
+    font: italic 12px 'Open sans';
+    position: relative !important;
+    margin-left: 30px;
+    padding-left:13px;
+    color: #ffba00;
+}
+
+.fwdigp .default-categories-main .categories .category{
+    margin:0 6px;
+}
+
+.fwdigp .default-categories-main .categories .fwdigpicon-categories:before{
+    position: absolute;
+    left: 0;
+    top: 3px;
+}
+
+.fwdigp .default-categories-main .separator{
+    color: #FFF;
+}
+
+.fwdigp .title-default{
+    overflow: visible !important;
+    text-transform: uppercase;
+}
+
+.fwdigp .title-default .in{
+    position: relative !important;
+    font: bold 24px 'Josefin sans';
+    margin:0 30px 0 29px;
+    color: #FFF;
+}
+
+.fwdigp .default-client-main{
+    position: relative !important;
+    display: inline-block;
+    float: left;
+}
+
+.fwdigp .default-client-main .client{
+    position: relative !important;
+    font: 12px 'Open sans';
+    display: inline-block;
+    margin:0 0 30px 29px;
+    color:#FFF;
+}
+
+.fwdigp .default-client-main .client .fwdigpicon-author:before{
+    position: absolute;
+    font-size: 14px !important;
+    left: 0;
+    top: 1px;
+}
+
+.fwdigp .default-client-main .client span{
+    padding-left: 10px;
+}
+
+.fwdigp .default-likes-main{
+    position: relative !important;
+    overflow: visible !important;
+    display: inline-block;
+    float: left;
+    margin: 0 30px 30px 30px !important;
+}
+
+.fwdigp .default-likes-main .like{
+    position: relative !important;
+    overflow: visible !important;
+    display: inline-block;
+}
+
+.fwdigp .default-likes-main .like{
+    font: 12px 'Open sans';
+    padding-left: 21px;
+    color: #FFF;
+}
+
+.fwdigp .default-likes-main .like .fwdigpicon{
+    position: absolute;
+    font-size: 16px !important;
+    left: 0;
+    top: 0;
+    color: #ffba00;
+}
+
+.fwdigp .main .main-holder{
+    top: auto !important;
+    bottom: 0 !important;
+}
+
+.fwdigp .gallery1DecHeader{
+    font-family:myFont, Arial;
+    font-size:22px;
+    margin:8px;
+    color:#666666;
+    font-weight:bold;
+}
+
+.fwdigp .gallery1DescP{
+    font-size:14px;
+    margin:8px;
+    margin-top:6px;
+    margin-bottom:6px;
+    color:#555555;
+    line-height:18px;
+}
+
+
+/* Grid caption. */
+.caption{
+    text-align: center;
+}
+
+.caption .caption-in{
+   top: auto !important;
+    bottom: 0 !important;
+}
+
+.caption .title{
+    font: 700 18px Roboto, Arial;
+    line-height: 21px;
+    margin: 0 20px 0;
+    color: #FFFFFF;
+}
+
+.caption .desc{
+    font: 400 14px Roboto, Arial;
+    font-style: italic;
+    line-height: 19px;
+    margin: 5px 20px 10px;
+    color: #E9E9E9;
+}
+
+.caption .desc a{
+    text-decoration: none;
+    background-image: linear-gradient(#E9E9E9 calc(100% - 2px), #E9E9E9 1px);
+    background-position: 0 calc(100% + 1px);
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.6s cubic-bezier(0.215, 0.61, 0.355, 1), color 0.3s ease-out, background 0.3s ease-out, border-color 0.3s ease-out;
+    border-bottom: 1px solid rgba(233, 233, 233, 0.4);
+    color: #E9E9E9;
+}
+
+.caption .desc a:hover{
+    background-size: 100% 1px;
+    color: #FFFFFF;
+}
+
+
+/* Combobox. */
+.fwdigp .p-selector{
+    position:absolute !important;
+    left: auto !important;
+    top: 100px !important;
+    left: auto !important;
+    top: 30px !important;
+    right: 30px;
+    z-index: 999 !important;
+}
+
+.fwdigp .p-buttons-background{
+    width:100%;
+    background-color:#000;
+}
+
+.fwdigp .PGMenuButtonsSpacers{
+    background-color:rgba(30,30,30,.8);
+}
+
+.fwdigp .PGMenuButtonBackgroundNormal{
+    background-color:rgba(0,0,0,.6);
+}
+
+.fwdigp .PGMenuButtonBackgroundSelected{
+    background-color:#050505;
+}
+
+.fwdigp .PGMenuSelectorTextNormal{
+    font: normal bold 14px 'Josefin sans';
+    text-transform: uppercase;
+    padding: 14px 5px 11px 17px;
+    color:#FFF;
+}
+
+.fwdigp .PGMenuSelectorTextSelected{
+    font: normal bold 14px 'Josefin sans';
+    text-transform: uppercase;
+    padding: 14px 5px 11px 17px;
+    color: #ffba00;
+}
+
+.fwdigp .PGMenuButtonTextNormal{
+    font: normal 14px 'Josefin sans' !important;
+    padding: 10px 18px;
+    color: #FFF;
+}
+
+.fwdigp .PGMenuButtonTextSelected{
+    font: normal 14px 'Josefin sans' !important;
+    padding: 10px 18px;
+    color: #ffba00;
+}
+
+.fwdigp .arrowNormal{
+    backface-visibility: hidden !important;
+    border-color:#FFF !important;
+}
+
+.fwdigp .arrowSelected{
+    backface-visibility: hidden !important;
+    border-color:#FFF !important;
+}
+
+.fwdigp .background{
+    background-color: #F6F4F8;
+}
+
+.fwdigp .PGThumbnailOverlay{
+    background-color:#FF0000;
+}
+
+@media screen and (max-width: 600px){
+  .fwdigp .p-selector{
+      top: 15px !important;
+      right: 15px !important;
+      z-index: 999 !important;
+  }
+}
+
+
+/* Grid icons */
+.fwdigp .fwdrlin.fwdigpicon:before{
+  font-size: 26px !important;
+  backface-visibility: hidden;
+  color: #FFF;
+}
+
+
+
+/* Look/unlook scroll. */
+.look{
+    overflow: visible !important;
+    top: 20px !important;
+    left: 20px !important;
+}
+
+.look .look-background-normal-state{
+    border-radius:  100%;
+    padding: 8px 9px !important;
+    background: rgba(0,0,0,.6);
+}
+
+.look .look-background-selected-state{
+    border-radius: 100%;
+    padding: 8px 9px !important;
+    background: rgba(0,0,0,1);
+}
+
+.look .look-fwdicon-normal-state{
+    left: 9px !important;
+    top: 9px !important;
+    overflow: visible !important;
+    font-size: 26px !important;
+    color: #999 !important;
+}
+
+.look .look-fwdicon-selected-state{
+    left: 9px !important;
+    top: 9px !important;
+    overflow: visible !important;
+    font-size: 26px !important;
+    color: #FFF !important;
+}
+
+
+@media screen and (max-width: 500px){
+    .look{
+        top: 11px !important;
+        left: 11px !important;
+    }
+}
+
+/* Thumb Video player vector skin. */
+.fwdigp .EVPSubtitle{
+    font: 600 22px Roboto, Arial !important;
+    text-align:center !important;
+    color:#FFFFFF !important;
+    max-width: none !important;
+    text-shadow: 0px 0px 1px #000000 !important;
+    line-height:28px !important;
+    margin:0 20px 20px !important;
+    padding: 0px !important;
+}
+
+.fwdigp .EVPSubtitle.phone{
+    font-size: 14px !important;
+    line-height: 18px !important;
+    margin: 0 10px 10px !important;
+}
+
+.fwdigp .EVPSubtitle.large{
+    font-size: 28px !important;
+    line-height: 38px !important;
+    margin: 0 20px 20px !important;
+}
+
+.fwdigp .EVPMainButtonsNormalState{
+    overflow: visible !important;
+    font-size: 26px !important;
+    color:#999 !important;
+}
+
+.fwdigp .EVPMainButtonsSelectedState{ 
+    overflow: visible !important;
+    font-size:26px !important;
+    color:#FFF !important;
+}
+
+.fwdigp .EVPMainButtonsNormalState .fwdigpicon-play,
+.fwdigp .EVPMainButtonsSelectedState .fwdigpicon-play,
+.fwdigp .EVPMainButtonsNormalState .fwdigpicon-pause,
+.fwdigp .EVPMainButtonsSelectedState .fwdigpicon-pause{
+    position: relative;
+    left: 0;
+    top: 1px;
+}
+
+.fwdigp .EVPMainButtonsNormalState .fwdigpicon-sound,
+.fwdigp .EVPMainButtonsSelectedState .fwdigpicon-sound,
+.fwdigp .EVPMainButtonsNormalState .fwdigpicon-sound-off,
+.fwdigp .EVPMainButtonsSelectedState .fwdigpicon-sound-off{
+    position: relative;
+    left: 0;
+    top: 2px;
+}
+
+.fwdigp .table-fwdevp-button{ 
+    display: table;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.fwdigp .EVPMainButtonsSelectedState .fwdigpicon-fullscreen{
+    left: 0;
+}
+
+.fwdigp .table-cell-fwdevp-button{
+    position: static !important;
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.fwdigp .EVPLargePlayButtonNormalState{
+    position: absolute;
+    font-size: 36px;
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+    background-color: rgba(0,0,0,.4);
+    color:#BBB9BA;
+}
+
+.fwdigp .EVPLargePlayButtonNormalState .table-cell-fwdevp-button,
+.fwdigp .EVPLargePlayButtonSelectedState .table-cell-fwdevp-button{
+    padding: 1px 0 0 !important;
+}
+
+.fwdigp .EVPLargePlayButtonSelectedState{
+    position: absolute;
+    font-size: 36px;
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+    background-color: rgba(0,0,0,.6);
+    color: #FFF;
+}
+
+.fwdigp .EVPLargePlayButtonSelectedState .table-cell-fwdevp-button{
+    padding:2px 0 0;
+}
+
+.fwdigp .fwdigpicon-watch-later{
+    left: 5px;
+    position: relative;
+}
+
+
+
+/** 
+ * --------------------------------------------------------------------------------
+ *  3. LIGHTBOX.
+ * --------------------------------------------------------------------------------
+ */
+
+/* Lightbox Video player vector skin. */
+.rl .EVPSubtitle{
+    font: 600 22px Roboto, Arial !important;
+    text-align:center !important;
+    color:#FFFFFF !important;
+    max-width: none !important;
+    text-shadow: 0px 0px 1px #000000 !important;
+    line-height:28px !important;
+    margin:0 20px 20px !important;
+    padding: 0px !important;
+}
+
+.rl .EVPSubtitle.phone{
+    font-size: 16px !important;
+    line-height: 20px !important;
+    margin: 0 10px 10px !important;
+}
+
+.rl .EVPSubtitle.large{
+    font-size: 28px !important;
+    line-height: 38px !important;
+    margin: 0 20px 20px !important;
+}
+
+.rl .fwdevp-autoplay-text{
+    font: 500 12px Roboto, Arial !important;
+    top: 12px !important;
+    left: 12px !important;
+    border-radius: 14px;
+    line-height: 14px !important;
+    padding: 6px 23px 6px 18px !important;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #FFFFFF;
+    transition: background-color .3s ease-out, color .3s ease-out;
+}
+
+.rl .fwdevp-autoplay-text:hover{
+    color: #000;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.rl .fwdevp-autoplay-text:hover svg path{
+    fill: #111;
+}
+
+.rl .fwdevp-time,
+.rl .fwdevp-qaulity-button{
+    font: 400 13px Roboto, Arial !important;
+}
+
+.rl .fwdevp-autoplay-text svg{
+    transform: translate(6px, 2px);
+}
+
+.rl .fwdevp-autoplay-text svg path{
+    transition: all .3s ease-out;
+    fill: #FFFFFF;
+}
+
+.rl .EVP-tooltip-text{
+    font: 400 12px Roboto, Arial !important;
+    padding: 5px 8px 5px !important;
+}
+
+.rl .fwdevp-thubnails-preview-text{
+    font: 400 13px Roboto, Arial !important;
+    padding: 5px 8px 4px !important;
+}
+
+.rl .fwdevp-skip,
+.rl .fwdevp-ads{
+    font-family: Roboto, Arial !important;
+}
+
+.rl .fwdevp-password-title,
+.rl .fwdevp-password-label,
+.rl .fwdevp-password-input{
+    font-family: Roboto, Arial !important;
+    height: auto !important;
+}
+
+.rl .EVPMainButtonsNormalState{
+    overflow: visible !important;
+    font-size: 26px !important;
+    color:#999 !important;
+}
+
+.rl .EVPMainButtonsSelectedState{ 
+    overflow: visible !important;
+    font-size:26px !important;
+    color:#FFF !important;
+}
+
+.rl .EVPMainButtonsNormalState .fwdigpicon-play,
+.rl .EVPMainButtonsSelectedState .fwdigpicon-play,
+.rl .EVPMainButtonsNormalState .fwdigpicon-pause,
+.rl .EVPMainButtonsSelectedState .fwdigpicon-pause{
+    position: relative;
+    left: 0;
+    top: 1px;
+}
+
+.rl .EVPMainButtonsNormalState .fwdigpicon-sound,
+.rl .EVPMainButtonsSelectedState .fwdigpicon-sound,
+.rl .EVPMainButtonsNormalState .fwdigpicon-sound-off,
+.rl .EVPMainButtonsSelectedState .fwdigpicon-sound-off{
+    position: relative;
+    left: 0;
+    top: 2px;
+}
+
+.rl .EVPMainButtonsNormalState .fwdigpicon-cast,
+.rl .EVPMainButtonsSelectedState .fwdigpicon-cast,
+.rl .EVPMainButtonsNormalState .fwdigpicon-fullscreen,
+.rl .EVPMainButtonsSelectedState .fwdigpicon-fullscreen,
+.rl .EVPMainButtonsNormalState .fwdigpicon-sound-normalscreen,
+.rl .EVPMainButtonsSelectedState .fwdigpicon-sound-normalscreen{
+    position: relative;
+    top: 1px;
+}
+
+.rl .table-fwdevp-button{ 
+    display: table;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.rl .table-cell-fwdevp-button{
+    position: static !important;
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.rl .EVPLargePlayButtonNormalState{
+    position: absolute;
+    font-size: 36px;
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+    background-color: rgba(0,0,0,.4);
+    color:#BBB9BA;
+}
+
+.rl .EVPLargePlayButtonNormalState .table-cell-fwdevp-button,
+.rl .EVPLargePlayButtonSelectedState .table-cell-fwdevp-button{
+    padding: 2px 0 0 !important;
+}
+
+.rl .EVPLargePlayButtonSelectedState{
+    position: absolute;
+    font-size: 36px;
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+    background-color: rgba(0,0,0,.6);
+    color: #FFF;
+}
+
+.rl .EVPLargePlayButtonSelectedState .table-cell-fwdevp-button{
+    padding:2px 0 0;
+}
+
+.fwdevp .fwdigpicon-fullscreen,
+.fwdevp .fwdigpicon-normalscreen{
+    position: absolute !important;
+    left: -8px !important;
+    top: -13px !important;
+}
+.rl .fwdigpicon-settings{
+    top: 1px !important;
+    left: 6px !important;
+    position: relative;
+}
+
+
+
+ /* Counter. */
+.rl-counter .text{
+    font: 400 14px Roboto, Arial;
+    color: #B9B9B9;
+    padding: 9px 9px !important;
+    background-color: rgba(0,0,0,.4) !important;
+}
+
+.rl-counter.in .text{
+    text-align: center;
+    padding: 9px 8px !important;
+    transform-origin: top left;
+    transform: rotate(90deg) !important;
+    background-color:transparent !important;
+}
+
+
+/* Lightbox skin.*/
+.rl-button{
+    position: relative !important;
+    width: 32px;
+    height: 32px;
+    font-size: 23px;
+    background-color:rgba(0,0,0,.4);
+    color:#B9B9B9;
+    transition: all .25s ease-out;
+}
+
+.rl-button .fwdigpicon{
+    position: absolute;
+}
+
+.rl-button.selected{
+    background-color:rgba(0,0,0,.6) ;
+    color:#FFF;
+}
+
+.fwdigpicon-close{
+    left: 4px;
+    top: 4px;
+}
+
+.fwdigpicon-play,
+.fwdigpicon-pause{
+    left: 5px;
+    top: 4px;
+}
+
+.fwdigpicon-zoomin,
+.fwdigpicon-zoomout{
+    left: 4px;
+    top: 4px;
+}
+
+.fwdigpicon-fullscreen,
+.fwdigpicon-normalscreen{
+    position: absolute !important;
+    left: 4px !important;
+    top: 4px !important;
+}
+
+.fwdigpicon-share{
+    left: 5px;
+    top: 4px;
+}
+
+.fwdigpicon-next{
+    left: 6px;
+    top: 4px;
+}
+
+.fwdigpicon-prev{
+    left: 4px;
+    top: 4px;
+}
+
+.rl-share-button .rl-button{
+    background-color: transparent;
+    color: #000;
+}
+
+.rl-share-button .rl-button.selected{
+    background-color: transparent;
+    color: #FFF;
+}
+
+.fwdigpicon-facebook{
+    top: 4px;
+    left: 4px;
+}
+
+.rl-button.facebook.selected{
+   background-color: #1877F2;
+}
+
+.fwdigpicon-twitter{
+    top: 4px;
+    left: 5px;
+}
+
+.rl-button.twitter.selected{
+    background-color: #1DA1F3;
+}
+
+.fwdigpicon-linkedin{
+    top: 4px;
+    left: 5px;
+}
+
+.rl-button.linkedin.selected{
+    background-color: #0A66C2;
+}
+
+.fwdigpicon-tumblr{
+    top: 4px;
+    left: 4px;
+}
+
+.rl-button.tumblr.selected{
+    background-color: #FF8A00;
+}
+
+.fwdigpicon-pinterest{
+    top: 4px;
+    left: 4px;
+}
+
+.rl-button.pinterest.selected{
+    background-color: #FF8A00;
+}
+
+.fwdigpicon-reddit{
+    top: 4px;
+    left: 4px;
+}
+
+.rl-button.reddit.selected{
+   background-color: #F74300;
+}
+
+.fwdigpicon-buffer{
+    top: 4px;
+    left: 4px;
+}
+
+.rl-button.buffer.selected{
+    background-color: #2C4BFF;
+}
+
+.fwdigpicon-digg{
+    top: 4px;
+    left: 4px;
+}
+
+.rl-button.digg.selected{
+    background-color: #2066A3;
+}
+
+.fwdigpicon-blogger{
+    top: 4px;
+    left: 4px;
+}
+
+.rl-button.blogger.selected{
+    background-color: #F74300;
+}
+
+.rl .fwdigpicon-watch-later{
+    position: relative !important;
+    left: 5px !important;
+    top: 1px !important;
+}
+
+.rl .fwdigpicon-10{
+    position: relative !important;
+    left: -3px !important;
+}
+
+
+@media screen and (max-width: 600px){
+    .fwdevp .fwdigpicon-watch-later{
+       left: 4px !important;
+    }
+}
+
+.rl .fwdigpicon-cast{
+    left: 4px !important;
+    top: 2px !important;
+}
+
+
+
+/* Caption bottom out. */
+.rl-caption.out .fwdrl-title{
+  margin: 21px 0 0;
+}
+
+.rl-caption.out .fwdrl-desc{
+  margin: 5px 0 0;
+}
+
+@media screen and (max-width: 600px){
+    .rl-caption.out .fwdrl-title{
+        margin: 21px 10px 0;
+    }
+
+    .rl-caption.out .fwdrl-desc{
+        margin: 5px 10px 0;
+    }
+}
+
+
+/* Caption. */
+.rl-caption{
+   text-align: center;
+}
+
+.rl-caption .fwdrl-title{
+    font: 700 18px Roboto, Arial;
+    line-height: 21px;
+    margin: 21px 20px 0;
+    color: #FFFFFF;
+}
+
+.rl-caption .fwdrl-desc{
+    font: 400 14px Roboto, Arial;
+    font-style: italic;
+    line-height: 19px;
+    margin: 5px 20px 0;
+    color: #E9E9E9;
+}
+
+.rl-caption .fwdrl-desc strong{
+    color: #FFFFFF !important;
+}
+
+.rl-caption .fwdrl-desc a{
+  text-decoration: none;
+    background-image: linear-gradient(#E9E9E9 calc(100% - 2px), #E9E9E9 1px);
+    background-position: 0 calc(100% + 1px);
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.6s cubic-bezier(0.215, 0.61, 0.355, 1), color 0.3s ease-out, background 0.3s ease-out, border-color 0.3s ease-out;
+    border-bottom: 1px solid rgba(233, 233, 233, 0.4);
+    color: #E9E9E9;
+}
+
+.rl-caption .fwdrl-desc a:hover{
+    background-size: 100% 1px;
+    color: #FFFFFF;
+}
+
+
+/* Caption top/bottom in. */
+.rl-caption.bottomin .background,
+.rl-caption.topin .background{
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 8.85%, rgba(0, 0, 0, 0.171875) 38.54%, rgba(0, 0, 0, 0.510026) 68.75%, #000000 100%);
+    opacity: 0.6;
+}
+
+.rl-caption.topin .background{
+    transform: rotate(180deg);
+}
+
+.rl-caption.bottomin .fwdrl-title{
+    margin-top: 50px;
+}
+
+.rl-caption.bottomin .fwdrl-desc{
+    margin-bottom: 28px;
+}
+
+.rl-caption.bottomin.small-screen .fwdrl-title{
+    margin: 50px 10px 0;
+}
+
+.rl-caption.bottomin.small-screen .fwdrl-desc{
+    margin: 5px 10px 15px;
+}
+
+.rl-caption.topin .fwdrl-title{
+    margin-top: 29px;
+}
+
+.rl-caption.topin .fwdrl-desc{
+    margin-bottom: 50px;
+}
+
+.rl-caption.topin.small-screen .fwdrl-title{
+   margin: 15px 10px 0;
+}
+
+.rl-caption.topin.small-screen .fwdrl-desc{
+    margin: 5px 10px 50px;
+}
+
+
+/* Share buttons. */
+.rl-share{
+    width: 164px;
+    border-radius: 2px;
+    /* This is set by default in the settings, uncomment it to use it. */
+    /*background-color: #FFFFFF !important;*/ 
+}
+
+.rl-share .rl-pointer{
+    /* This is set by default in the settings, uncomment it to use it. */
+    /*background-color: #FFFFFF !important;*/
+}
+
+.rl-share .rl-text{
+    font: 400 14px Roboto, Arial;
+    text-align: center;
+    border-bottom: 1px solid #E3E3E3 !important;
+    padding: 13px 0 10px !important;
+    color: #1E1E1E;
+}
+
+.rl-share .rl-buttons-holder{
+    padding: 15px 18px 2px !important;
+}
+
+.rl-share .rl-share-button{
+    margin: 0 16px 10px 0 !important;
+}
+
+.rl-share .rl-share-button:nth-child(3n){
+    margin-right: 0 !important;
+}

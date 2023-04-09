@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+	
+	<title>Infinite Grid Pro</title>
+	
+	<link rel="stylesheet" type="text/css"  href="content/global.css"/>
+
+	<script type="text/javascript" src="../js/FWDIGPContextMenu.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPSP.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPDisplayObject.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPEventDispatcher.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPTransformDisplayObject.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPUtils.js"></script>
+	<script type="text/javascript" src="../js/FWDAnimation.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPInfo.js"></script>
+	<script type="text/javascript" src="../js/FWDIGP.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPData.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPComboBox.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPComboBoxButton.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPThumbsManager.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPThumb.js"></script>
+	<script type="text/javascript" src="../js/FWDIGPLockIcon.js"></script>
+	<script type="text/javascript" src="../js/FWDConsole.js"></script>
+	
+
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Open+Sans&display=swap" rel="stylesheet">
+	
+	<script type="text/javascript">
+		/*FWDConsole.setPrototype();
+		var lg = new FWDConsole();*/
+		FWDIGPUtils.onReady(function(){
+			
+			new FWDIGP({
+
+				// Main settings.
+				rightClickContextMenu:"developer",
+				instanceName:"myIGP0",
+				parentId:"myDiv",
+				mainFolderPath:"content",
+				galleryId:"myGallery",
+				displayType:"responsive",
+				dragDirection:"horizontal",
+				initializeOnlyWhenVisible:"no",
+				thumbnailTransitionType:"motion",
+				autoScale:"yes",
+				paralax:"no",
+				autoScroll:"no",
+				autoScrollDirection:"right",
+				autoScrollSpeed:2,
+				enableVisitedThumbnails:"yes",
+				visitedThumbnailsOverlayOpacity:.4,
+				showLookScrollButton:"yes",
+				keepThumbnailsOriginalSizeOnGridStart:"no",
+				addZoomSupport:"yes",
+				addDragAndSwipeSupport:"yes",
+				disableThumbnailInteractivity:"no",
+				showThumbnailOverlay:"yes",
+				showThumbnailIcon:"yes",
+				openOnSingleTouch:"no",
+				showCaption:"yes",
+				showCaptionOnThumbVideo:"yes",
+				maxWidth:1920,
+				maxHeight:900,
+				offsetWidth:700,
+				minHeight:400,
+				thumbnailMaxWidth:489,
+				thumbnailMaxHeight:321,
+				maxScale:1.6,
+				minScale:.8,
+				preloaderBackgroundColor:"2e2e2e",
+				preloaderFillColor: "#FFFFFF",
+				backgroundColor:"#f7f6fc",
+				thumbnailBackgroundColor:"#eeecf9",
+				thumbnailOverlayColor:"#000000",
+				thumbnailOverlayOpacity:.4,
+
+				// Categories select box settings.
+				showGalleriesMenu:"yes",
+				galleriesMenuSelectLabel:"Select galleries",
+				allGalleriesMenuLabel:"All galleries (mixed)",
+				showAllGalleries:"yes",
+				randomizeGalleries:"no",
+				startAtGallery:1,
+
+				// Video player in thumbs.
+				useVideoInThumb:"yes",
+				vdPreloaderBkColor:"#2e2e2e",
+				vdPreloaderFillColor:"#FFFFFF",
+				vdFillEntireVideoScreen:"yes",
+				vdUseKeyboard:"yes",
+				vdVolume:1,
+				vdBackgroundColor:"#000000",
+				vdShowLogo:"yes",
+				vdLogoPath:"",
+				vdLogoLink:"",
+				vdButtonsHideDelay:5,
+				vdShowScrubberWhenControllerIsHidden:"yes",
+				vdShowVolumeButton:"yes",
+				vdShowVolumeScrubber:"yes",
+				vdShowTime:"yes",
+				vdShowRewindButton:"no",
+				vdShowFullScreenButton:"yes",
+				vdShowScrubberToolTipLabel:"yes",
+				vdTimeColor:"#B9B9B9",
+				vdScrubbersToolTipLabelBackgroundColor:"#FFFFFF",
+				vdScrubbersToolTipLabelFontColor:"#5a5a5a",
+				vdShowPlaybackRateButton:"no",
+				vdThumbnailsPreviewWidth:110,
+				vdThumbnailsPreviewBackgroundColor:"#2e2e2e",
+				vdThumbnailsPreviewBorderColor:"#414141",
+				vdThumbnailsPreviewLabelBackgroundColor:"#414141",
+				vdThumbnailsPreviewLabelFontColor:"#CCCCCC",
+
+				// Ligtbox settings (optional).
+				useLightbox:"yes",
+				rlUseDeepLinking:"yes",
+				rlItemBackgroundColor:"#212121",
+				rlDefaultItemWidth:1527,
+				rlDefaultItemHeight:859,
+				rlItemOffsetHeight:37,
+				rlItemOffsetHeightButtonsTop:47,
+				rlItemBorderSize:0,
+				rlItemBorderColor:"#FFFFFF",
+				rlMaxZoom:1.2,
+				rlPreloaderBkColor:"#2e2e2e",
+				rlPreloaderFillColor:"#FFFFFF",
+				rlButtonsAlignment:"in",
+				rlButtonsHideDelay:5,
+				rlMediaLazyLoading:"yes",
+				rlUseDrag:"yes",
+				rlUseAsModal:"no",
+				rlShowSlideShowButton:"yes",
+				rlShowSlideShowAnimation:"yes",
+				rlSlideShowAutoPlay:"no",
+				rlSlideShowAutoStop:"no",
+				rlSlideShowDelay:6,
+				rlSlideShowBkColor:"#2e2e2e",
+				rlSlideShowFillColor:"#FFFFFF",
+				rlUseKeyboard:"yes",
+				rlUseDoubleClick:"yes",
+				rlShowCloseButton:"yes",
+				rlShowFullscreenButton:"yes",
+				rlShowZoomButton:"yes",
+				rlShowCounter:"yes",
+				rlShowNextAndPrevBtns:"yes",
+				rlSpaceBetweenBtns:8,
+				rlButtonsOffsetIn:10,
+				rlButtonsOffsetOut:10,
+				rlBackgroundColor:"rgba(0,0,0,1)",
+				rlShareButtons:['facebook', 'twitter', 'linkedin', 'tumblr', 'pinterest', 'reddit', 'buffer', 'digg','blogger'],
+				rlShareText:"Share on",
+				rlSharedURL:"deeplink",
+				rlShareMainBackgroundColor:"rgba(0,0,0,.4)",
+				rlShareBackgroundColor:"#FFFFFF",
+				rlShowThumbnails:"yes",
+				rlShowThumbnailsIcon:"yes",
+				rlThumbnailsHeight:80,
+				rlThumbnailsOverlayColor:"rgba(0,0,0,.4)",
+				rlThumbnailsBorderSize:2,
+				rlThumbnailsBorderColor:"#FFFFFF",
+				rlSpaceBetweenThumbnailsAndItem:10,
+				rlThumbnailsOffsetBottom:10,
+				rlSpaceBetweenThumbnails:5,
+				rlShowCaption:"yes",
+				rlCaptionPosition:"bottomout",
+				rlShowCaptionOnSmallScreens:"no",
+				rlCaptionAnimationType:"motion",
+				rlUseVideo:"yes",
+				rlFillEntireScreenWithPoster:"yes",
+				rlFillEntireVideoScreen:"no",
+				rlVolume:1,
+				rlVideoAutoPlay:"no",
+				rlNextVideoAutoPlay:"no",
+				rlVideoAutoPlayText:"Click to unmute",
+				rlShowLogo:"yes",
+				rlLogoPath:"",
+				rlLogoLink:"",
+				rlShowDefaultControllerForVimeo:"yes",
+				rlShowScrubberWhenControllerIsHidden:"yes",
+				rlShowRewindButton:"yes",
+				rlShowVolumeButton:"yes",
+				rlShowChromecastButton:"yes",
+				rlShowPlaybackRateButton:"yes",
+				rlShowQualityButton:"yes",
+				rlVideoShowFullScreenButton:"yes",
+				rlShowScrubberToolTipLabel:"yes",
+				rlShowTime:"yes",
+				rlTimeColor:"#B9B9B9",
+				rlYoutubeQualityButtonNormalColor:"#B9B9B9",
+				rlYoutubeQualityButtonSelectedColor:"#FFFFFF",
+				rlScrubbersToolTipLabelBackgroundColor:"#FFFFFF",
+				rlScrubbersToolTipLabelFontColor:"#5a5a5a",
+				rlAudioVisualizerLinesColor:"#5948C5",
+				rlAudioVisualizerCircleColor:"#FFFFFF",
+				rlThumbnailsPreviewWidth:196,
+				rlThumbnailsPreviewBackgroundColor:"#2e2e2e",
+				rlThumbnailsPreviewBorderColor:"#414141",
+				rlThumbnailsPreviewLabelBackgroundColor:"#414141",
+				rlThumbnailsPreviewLabelFontColor:"#CCCCCC",
+				rlSkipToVideoText:"You can skip to video in: ",
+				rlSkipToVideoButtonText:"Skip Ad",
+				//preset
+				preset:'portfolio'
+			});
+
+			/*new FWDIGP({
+
+				// Main settings.
+				rightClickContextMenu:"developer",
+				instanceName:"myIGP1",
+				parentId:"myDiv2",
+				mainFolderPath:"content",
+				galleryId:"myGallery",
+				displayType:"responsive",
+				dragDirection:"both",
+				initializeOnlyWhenVisible:"yes",
+				thumbnailTransitionType:"motion",
+				autoScale:"yes",
+				paralax:"no",
+				autoScroll:"no",
+				autoScrollDirection:"right",
+				autoScrollSpeed:2,
+				enableVisitedThumbnails:"no",
+				visitedThumbnailsOverlayOpacity:.2,
+				showLookScrollButton:"yes",
+				keepThumbnailsOriginalSizeOnGridStart:"no",
+				addZoomSupport:"yes",
+				addDragAndSwipeSupport:"yes",
+				disableThumbnailInteractivity:"no",
+				showThumbnailOverlay:"yes",
+				showThumbnailIcon:"yes",
+				openOnSingleTouch:"no",
+				showCaption:"yes",
+				showCaptionOnThumbVideo:"yes", // check fist time the mouse is over the thumb if set to no
+				maxWidth:800,
+				maxHeight:900,
+				offsetWidth:700,
+				minHeight:400,
+				thumbnailMaxWidth:489,
+				thumbnailMaxHeight:321,
+				maxScale:1.6,
+				minScale:.8,
+				thumbnailOverlayOpacity:.6,
+				backgroundColor:"#000000",
+				thumbnailBackgroundColor:"#1a1a1a",
+				thumbnailOverlayColor:"#000000",
+
+				// Categories select box settings.
+				showGalleriesMenu:"yes",
+				galleriesMenuSelectLabel:"Select galleries",
+				allGalleriesMenuLabel:"All galleries (mixed)",
+				showAllGalleries:"yes",
+				randomizeGalleries:"no",
+				startAtGallery:1,
+
+				// Video player in thumbs.
+				useVideoInThumb:"yes",
+				vdPreloaderBkColor:"#2e2e2e",
+				vdPreloaderFillColor:"#FFFFFF",
+				vdFillEntireVideoScreen:"yes",
+				vdUseKeyboard:"yes",
+				vdVolume:1,
+				vdBackgroundColor:"#000000",
+				vdShowLogo:"yes",
+				vdLogoPath:"",
+				vdLogoLink:"",
+				vdButtonsHideDelay:5,
+				vdShowScrubberWhenControllerIsHidden:"yes",
+				vdShowVolumeButton:"yes",
+				vdShowVolumeScrubber:"yes",
+				vdShowTime:"yes",
+				vdShowRewindButton:"no",
+				vdShowFullScreenButton:"yes",
+				vdShowScrubberToolTipLabel:"yes",
+				vdTimeColor:"#B9B9B9",
+				vdScrubbersToolTipLabelBackgroundColor:"#FFFFFF",
+				vdScrubbersToolTipLabelFontColor:"#5a5a5a",
+				vdShowPlaybackRateButton:"no",
+				vdThumbnailsPreviewWidth:110,
+				vdThumbnailsPreviewBackgroundColor:"#2e2e2e",
+				vdThumbnailsPreviewBorderColor:"#414141",
+				vdThumbnailsPreviewLabelBackgroundColor:"#414141",
+				vdThumbnailsPreviewLabelFontColor:"#CCCCCC",
+
+				// Ligtbox settings (optional).
+				useLightbox:"yes",
+				rlUseDeepLinking:"yes",
+				rlItemBackgroundColor:"#212121",
+				rlDefaultItemWidth:1527,
+				rlDefaultItemHeight:859,
+				rlItemOffsetHeight:37,
+				rlItemOffsetHeightButtonsTop:47,
+				rlItemBorderSize:0,
+				rlItemBorderColor:"#FFFFFF",
+				rlMaxZoom:1.2,
+				rlPreloaderBkColor:"#2e2e2e",
+				rlPreloaderFillColor:"#FFFFFF",
+				rlButtonsAlignment:"in",
+				rlButtonsHideDelay:5,
+				rlMediaLazyLoading:"yes",
+				rlUseDrag:"yes",
+				rlUseAsModal:"no",
+				rlShowSlideShowButton:"yes",
+				rlShowSlideShowAnimation:"yes",
+				rlSlideShowAutoPlay:"no",
+				rlSlideShowAutoStop:"no",
+				rlSlideShowDelay:6,
+				rlSlideShowBkColor:"#2e2e2e",
+				rlSlideShowFillColor:"#FFFFFF",
+				rlUseKeyboard:"yes",
+				rlUseDoubleClick:"yes",
+				rlShowCloseButton:"yes",
+				rlShowFullscreenButton:"yes",
+				rlShowZoomButton:"yes",
+				rlShowCounter:"yes",
+				rlShowNextAndPrevBtns:"yes",
+				rlSpaceBetweenBtns:8,
+				rlButtonsOffsetIn:10,
+				rlButtonsOffsetOut:10,
+				rlBackgroundColor:"rgba(0,0,0,1)",
+				rlShareButtons:['facebook', 'twitter', 'linkedin', 'tumblr', 'pinterest', 'reddit', 'buffer', 'digg','blogger'],
+				rlShareText:"Share on",
+				rlSharedURL:"deeplink",
+				rlShareMainBackgroundColor:"rgba(0,0,0,.4)",
+				rlShareBackgroundColor:"#FFFFFF",
+				rlShowThumbnails:"yes",
+				rlShowThumbnailsIcon:"yes",
+				rlThumbnailsHeight:80,
+				rlThumbnailsOverlayColor:"rgba(0,0,0,.4)",
+				rlThumbnailsBorderSize:2,
+				rlThumbnailsBorderColor:"#FFFFFF",
+				rlSpaceBetweenThumbnailsAndItem:10,
+				rlThumbnailsOffsetBottom:10,
+				rlSpaceBetweenThumbnails:5,
+				rlShowCaption:"yes",
+				rlCaptionPosition:"bottomout",
+				rlShowCaptionOnSmallScreens:"no",
+				rlCaptionAnimationType:"motion",
+				rlUseVideo:"yes",
+				rlFillEntireScreenWithPoster:"yes",
+				rlFillEntireVideoScreen:"no",
+				rlVolume:1,
+				rlVideoAutoPlay:"no",
+				rlNextVideoAutoPlay:"no",
+				rlVideoAutoPlayText:"Click to unmute",
+				rlShowLogo:"yes",
+				rlLogoPath:"",
+				rlLogoLink:"",
+				rlShowDefaultControllerForVimeo:"yes",
+				rlShowScrubberWhenControllerIsHidden:"yes",
+				rlShowRewindButton:"yes",
+				rlShowVolumeButton:"yes",
+				rlShowChromecastButton:"yes",
+				rlShowPlaybackRateButton:"yes",
+				rlShowQualityButton:"yes",
+				rlShowFullScreenButton:"yes",
+				rlShowScrubberToolTipLabel:"yes",
+				rlShowTime:"yes",
+				rlTimeColor:"#B9B9B9",
+				rlYoutubeQualityButtonNormalColor:"#B9B9B9",
+				rlYoutubeQualityButtonSelectedColor:"#FFFFFF",
+				rlScrubbersToolTipLabelBackgroundColor:"#FFFFFF",
+				rlScrubbersToolTipLabelFontColor:"#5a5a5a",
+				rlAudioVisualizerLinesColor:"#5948C5",
+				rlAudioVisualizerCircleColor:"#FFFFFF",
+				rlThumbnailsPreviewWidth:196,
+				rlThumbnailsPreviewBackgroundColor:"#2e2e2e",
+				rlThumbnailsPreviewBorderColor:"#414141",
+				rlThumbnailsPreviewLabelBackgroundColor:"#414141",
+				rlThumbnailsPreviewLabelFontColor:"#CCCCCC",
+				rlSkipToVideoText:"You can skip to video in: ",
+				rlSkipToVideoButtonText:"Skip Ad",
+				//preset
+				preset:''
+			});*/
+		});
+	</script>
+</head>
+
+<body style="margin:0;">
+
+	<!-- grid holder -->
+	<!-- <span class="icon fwdicon-10"></span>  -->
+	
+	<div id="myDiv" style="background-color:#FF0000; width:800px; height:600px; "></div>
+	<div id="myDiv2" style="background-color:#00FF00; height:1400px; margin-top:2000px;"></div>
+	<div id="myDiv2" style="background-color:#00FF00; height:2000px;"></div>
+
+	<figure>
+      <div data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-16-v-630x462.jpg" data-url="link:https://upt.com/portfolio/candid-photo/" data-target="_self"></div>
+      <ul data-category="">
+         <li>Fashion model</li>
+      </ul>
+      <div data-title="">Candid Photo</div>
+      <div data-client="">
+         <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Cyberdyne Systems</span></div>
+      </div>
+      <div data-likes="">
+         <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+      </div>
+   </figure>
+
+
+
+	
+	<div id="myGallery" style="display:none">
+
+		<!-- Gallery  -->
+		<div data-cat="Multimedia gallery">
+
+			<ul>
+				<li data-thumb-src="media/thumbnails/video-thumb.jpg"></li>
+				
+				<ul data-category="">
+					<li>beauty</li>
+				</ul>
+				<div data-title="">Custom Title 1</div>
+				<div data-client=""><div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Client 1</span></div></div>
+				<div data-likes=""><div class="like"><span class="fwdicon fwdfwdicon-love"></span><span>1</span></div></div>
+			</ul>
+
+			<ul>
+				<li data-thumb-src="media/thumbnails/video-thumb-pass.jpg"></li>
+				
+				<ul data-category="">
+				</ul>
+				<div data-title="">Custom Title 2</div>
+				<div data-client=""><div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Client 2</span></div></div>
+				<div data-likes=""><div class="like"><span class="fwdicon fwdfwdicon-love"></span><span>2</span></div></div>
+			</ul>
+
+			<ul>
+				<li data-thumb-src="media/thumbnails/video-thumb-sub.jpg"></li>
+				<ul data-category="">
+					<li>beauty</li>
+				</ul>
+				<div data-title="">Custom Title 3</div>
+				<div data-client=""><div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Client 3</span></div></div>
+				<div data-likes=""><div class="like"><span class="fwdicon fwdfwdicon-love"></span><span>3</span></div></div>
+			</ul>
+
+			<ul>
+				<li data-thumb-src="media/thumbnails/video-thumb-preview.jpg" data-thumb-video-src="media/videos/girls.mp4" data-thumb-preview="auto"></li>
+
+				<ul data-category="">
+					<li>beauty</li>
+					<li>glamour</li>
+				</ul>
+				<div data-title="">Custom Title 4</div>
+				<div data-client=""><div class="client"><span class="fwdicon fwdfwdicon-author"></span><span></span>Client 4</div></div>
+				<div data-likes=""><div class="like"><span class="fwdicon fwdfwdicon-love"></span><span>4</span></div></div>
+			</ul>
+
+			<ul>
+				<li data-thumb-src="media/thumbnails/audio-thumb.jpg" data-thumb-video-src="media/audio/audio1.mp3"></li>
+				
+				<ul data-category="">
+					<li>beauty</li>
+				</ul>
+				<div data-title="">Custom Title 6</div>
+				<div data-client=""><div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Client 6</span></div></div>
+				<div data-likes=""><div class="like"><span class="fwdicon fwdfwdicon-love"></span><span>6</span></div></div>
+			</ul>
+
+			<ul>
+				<li data-thumb-src="media/thumbnails/audio-thumb-pass.jpg" data-thumb-video-src="media/audio/audio1.mp3" data-thumb-password="dd1d878544e988bb644756ca5e0ba56b"></li>
+				<li data-thumb-caption="">
+					<p class="title">Thumbnail audio password</p>
+					<p class="desc">Support for optional thumbnail video password, test password is <strong>Meli</strong>.</p>
+				</li>
+
+				<ul data-category="">
+					<li>beauty</li>
+				</ul>
+				<div data-title="">Custom Title 5</div>
+				<div data-client=""><div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Client 5</span></div></div>
+				<div data-likes=""><div class="like"><span class="fwdicon fwdfwdicon-love"></span><span>5</span></div></div>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/10.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img.jpg"></li>
+				
+				<ul data-category="">
+					<li>fashion</li>
+				</ul>
+				<div data-title="">Custom Title 7</div>
+				<div data-client=""><div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Client 7</span></div></div>
+				<div data-likes=""><div class="like"><span class="fwdicon fwdfwdicon-love"></span><span>7</span></div></div>
+			</ul>
+
+			<ul>
+				<li data-thumb-src="media/thumbnails/link.jpg" data-thumb-link="https://webdesign-flash.ro/p/u3dcar" data-thumb-target="_blank"></li>
+				
+				<ul data-category="">
+					<li>fashion</li>
+					<li>model</li>
+				</ul>
+				<div data-title="">Custom Title 8</div>
+				<div data-client=""><div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Client 8</span></div></div>
+				<div data-likes=""><div class="like"><span class="fwdicon fwdfwdicon-love"></span><span>8</span></div></div>
+			</ul>
+
+			<ul>
+				<li data-thumb-src="media/thumbnails/link.jpg" data-thumb-link="https://webdesign-flash.ro/p/u3dcar" data-thumb-target="_blank"></li>
+				
+				<ul data-category="">
+					<li>fashion</li>
+					<li>model</li>
+				</ul>
+				<div data-title="">Custom Title 8</div>
+				<div data-client=""><div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Client 8</span></div></div>
+				<div data-likes=""><div class="like"><span class="fwdicon fwdfwdicon-love"></span><span>8</span></div></div>
+			</ul>
+			
+		</div>
+		<!-- end  -->
+
+		<!-- Gallery  -->
+		<div data-cat="Image Gallery">
+
+			<ul>
+				<li data-thumb-src="media/thumbnails/img-9.jpg"></li>
+
+				<ul data-category="">
+					<li>beauty</li>
+				</ul>
+				<div data-title="">Custom Title 1</div>
+				<div data-client=""><div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Client 1</span></div></div>
+				<div data-likes=""><div class="like"><span class="fwdicon fwdfwdicon-love"></span><span>1</span></div></div>
+			</ul>
+
+			<ul>
+				<li data-thumb-src="media/thumbnails/img-1.jpg"></li>
+
+				<ul data-category="">
+					<li>beauty</li>
+				</ul>
+				<div data-title="">Custom Title 1</div>
+				<div data-client=""><div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Client 1</span></div></div>
+				<div data-likes=""><div class="like"><span class="fwdicon fwdfwdicon-love"></span><span>1</span></div></div>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/v-1.jpg"></li>
+				<li data-thumb-src="media/thumbnails/v-1.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Infinite Loop</p>
+					<p class="desc">Drag the grid infintelly.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Infinite Loop</p>
+					<p class="fwdrl-desc">IGP can be dragged infinitelly horizontal, veritcal or both.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/img-2.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img-2.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Revolution Lightbox Included</p>
+					<p class="desc">The most powerful lightbox in the world.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Revolution Lightbox Includedt</p>
+					<p class="fwdrl-desc">The most powerful <a href="https://webdesign-flash.ro/p/rl/" target="_blank">lightbox</a> in the world.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/img-3.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img-3.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Responsive Layout</p>
+					<p class="desc">Resposive and multiple display types.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Responsive Layout</p>
+					<p class="fwdrl-desc">Fully responsive and adaptable regardless of which device is used.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/img-5.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img-5.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Easy To Configure And Install</p>
+					<p class="desc">Easy to include in your project.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Easy To Configure And Install</p>
+					<p class="fwdrl-desc">Easy to include in your project. Featuring detailed documentation and video tutorials with sample demo pages ready for use.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/img-12.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img-12.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Video & Audio In Thumbnails</p>
+					<p class="desc">Support for video and audio directly in the grid thumbnails.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Video & Audio In Thumbnails</p>
+					<p class="fwdrl-desc">Support for video and audio directly in the grid thumbnails.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/img-6.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img-6.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">True Multimedia Content</p>
+					<p class="desc">Support for images, video and multiple video formats.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">True Multimedia Content</p>
+					<p class="fwdrl-desc">Support for images (.jpg, .jpeg, .webp, .png, .bmp, .gif, .tif, .tiff, .jfi, .jfif, .exif, .svg), audio (.mp3, m4a, .acc), Shoutcast, Icecast, video (.mp4, .webm, .ogv), Google Drive, Dropbox or other cloud platforms, Youtube, Vimeo, HLS/HTTP Live Streaming m3u8, DASH MPEG, Google maps, PDF, HTML content, Iframe and more.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/img-18.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img-18.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Share Button And Share Window</p>
+					<p class="desc">Share button and share window with nine share social platforms.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Share Button And Share Window</p>
+					<p class="fwdrl-desc">Share button and share window with nine share social platforms, the share social platforms buttons can be ordered and also removed as needed.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/v-5.jpg"></li>
+				<li data-thumb-src="media/thumbnails/v-5.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Advanced Video Advertising</p>
+					<p class="desc">VAST - Video Ad Serving Template and VMAP, IMA SDK for HTML5 and DFP / Google Doubleclick IMA tags.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Advanced Video Advertising</p>
+					<p class="fwdrl-desc">VAST - Video Ad Serving Template and VMAP - Video Multiple Ad Playlist support and Google Adsense Interactive Media Ads SDKs - IMA SDK for HTML5 and DFP / Google Doubleclick IMA tags.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/img-13.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img-13.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Caption Support</p>
+					<p class="desc">Customizable CSS formatted caption with two animation types (opacity and motion).</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Caption Support</p>
+					<p class="fwdrl-desc">Customizable CSS formatted caption with two animation types (opacity and motion) and three-position type (over the lightbox item at the top or bottom or under the lightbox item).</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/img-10.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img-10.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Chromecast Support</p>
+					<p class="desc">Play mp4 video, mp3 audio or HLS/m3u8 files on your TV screen using Chromecast.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Chromecast Support</p>
+					<p class="fwdrl-desc">Play mp4 video, mp3 audio or HLS/m3u8 files on your TV screen using Chromecast, the media can be controlled via the video player interface basically, the browser and the video player become a remote tv, example here.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/img-11.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img-11.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Video Thumbnails Live Preview</p>
+					<p class="desc">Video thumbnails preview created from a .vtt file or live auto-generated video thumbnails.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Video Thumbnails Live Preview</p>
+					<p class="fwdrl-desc">Video thumbnails preview created from a .vtt file or live auto-generated video thumbnails.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/v-3.jpg"></li>
+				<li data-thumb-src="media/thumbnails/v-3.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Private Password Protected Video/Audio</p>
+					<p class="desc">Private Video/Audio with MD5 encrypted password, this feature applies to Youtube and Vimeo as well.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Private Password Protected Video/Audio</p>
+					<p class="fwdrl-desc">Private Video/Audio with MD5 encrypted password, this feature applies to Youtube and Vimeo as well.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/img-4.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img-4.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Desktop And Mobile Optimized</p>
+					<p class="desc">Support for mouse and touch for mobile devices and touch screens.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Desktop And Mobile Optimized</p>
+					<p class="fwdrl-desc">Support for mouse and touch for mobile devices and touch screens.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/v-2.jpg"></li>
+				<li data-thumb-src="media/thumbnails/v-2.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Deeplinking</p>
+					<p class="desc">Unique and shareable link for the current opened gallery item.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Deeplinking</p>
+					<p class="fwdrl-desc">Unique and shareable link for the current opened gallery item.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/img-7.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img-7.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Youtube and Vimeo support</p>
+					<p class="desc">Revolution Lightbox Youtube and Vimeo support.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Youtube and Vimeo support</p>
+					<p class="fwdrl-desc">Revolution Lightbox Youtube and Vimeo support.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/img-14.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img-14.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Video & Audio Subtitles</p>
+					<p class="desc">Support for subtitles, the format can be .txt, .srt or .vtt.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Video & Audio Subtitles</p>
+					<p class="fwdrl-desc">Support for subtitles, the format can be .txt, .srt or .vtt.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/img-15.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img-15.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Constant Development And Updates</p>
+					<p class="desc">Once purchased, infinite Grid Pro comes with access to support and free updates.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Constant Development And Updates</p>
+					<p class="fwdrl-desc">Once purchased, infinite Grid Pro comes with access to support and free updates.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/v-6.jpg"></li>
+				<li data-thumb-src="media/thumbnails/v-6.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Direct support from the developer</p>
+					<p class="desc">Once you buy Revolution Lightbox you will also receive direct support and attention from the developer. <strong>Tibi</strong> @ FWD.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Lightbox Image Support</p>
+					<p class="fwdrl-desc">Once you buy Revolution Lightbox you will also receive direct support and attention from the developer. <strong>Tibi</strong> @ FWD.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/img-16.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img-16.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Video And Audio Keyboard support</p>
+					<p class="desc">Control the video and audio uing the keyboard.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Video And Audio Keyboard support</p>
+					<p class="fwdrl-desc">Control the video and audio uing the keyboard.</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li data-rl-src="media/images/img-17.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img-17.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Parallax Scrolling Effect</p>
+					<p class="desc">Optional parallax support when the page is scrolled..</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Parallax Scrolling Effect</p>
+					<p class="fwdrl-desc">Optional parallax support when the page is scrolled..</p>
+				</li>
+			</ul>
+
+
+			<ul>
+				<li data-rl-src="media/images/img-8.jpg"></li>
+				<li data-thumb-src="media/thumbnails/img-8.jpg"></li>
+				<li data-thumb-caption="">
+					<p class="title">Random Images</p>
+					<p class="desc">The option to randomize the images order everytime the page is visited.</p>
+				</li>
+				<li data-rl-caption="">
+					<p class="fwdrl-title">Random Images</p>
+					<p class="fwdrl-desc">The option to randomize the images order everytime the page is visited.</p>
+				</li>
+			</ul>
+		
+		</div>
+		<!-- end  -->
+		
+	</div>
+
+<!-- 	<ul>
+		<li data-thumb-src="media/thumbnails/video-thumb.jpg"></li>
+		
+		<ul data-category="">
+			<li>beauty</li>
+		</ul>
+		<div data-title="">Custom Title 1</div>
+		<div data-client=""><div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Client 1</span></div></div>
+		<div data-likes=""><div class="like"><span class="fwdicon fwdfwdicon-love"></span><span>1</span></div></div>
+	</ul> -->
+
+
+<div id="myPlaylist" style="display:none">
+   <div data-cat="Fashion model">
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-02-h-630x462.jpg" data-url="https://upt.com/portfolio/horizontal-fluid-width-fit-images/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Horizontal fluid width fit images</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>The New York Inquirers</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">8</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-17-v-630x462.jpg" data-url="https://upt.com/portfolio/street-style-photography/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">Street Style Photography</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Wonka Industries</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-07-h-630x462.jpg" data-url="https://upt.com/portfolio/wisdom/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">Wisdom</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Wayne Enterprises</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-04-h-630x462.jpg" data-url="https://upt.com/portfolio/self-portrait/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">Self Portrait</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Ollivander&#039;s Wand Shop</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-15-v-630x462.jpg" data-url="https://upt.com/portfolio/all-about-the-details/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">All About The Details</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Cheers</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">5</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-01-h-630x462.jpg" data-url="https://upt.com/portfolio/horizontal-fluid-width-full-images/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">Horizontal fluid width full images</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Stark Industries</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-16-v-630x462.jpg" data-url="https://upt.com/portfolio/candid-photo/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">Candid Photo</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Cyberdyne Systems</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-03-h-630x462.jpg" data-url="https://upt.com/portfolio/horizontal-fullscreen-full-images/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">Horizontal fullscreen full images</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Duff Beer</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-05-h-630x462.jpg" data-url="https://upt.com/portfolio/horizontal-fullscreen-fit-images/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">Horizontal fullscreen fit images</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Acme Corp.</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-08-h-630x462.jpg" data-url="https://upt.com/portfolio/panoramic-pictures/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">Panoramic Pictures</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Wonka Industries</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-10-h-630x462.jpg" data-url="https://upt.com/portfolio/natural-element/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">Natural Element</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Acme Corp.</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-20-v-630x462.jpg" data-url="https://upt.com/portfolio/sunsets-photos/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">Sunsets Photos</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Ollivander&#039;s Wand Shop</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-14-h-630x462.jpg" data-url="https://upt.com/portfolio/everyday-moments/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">Everyday Moments</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Cyberdyne Systems</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-09-h-630x462.jpg" data-url="https://upt.com/portfolio/panoramic-pictures-2/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">Black And White Month</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Wonka Industries</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-11-h-630x462.jpg" data-url="https://upt.com/portfolio/food-photography/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">Food Photography</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Very Big Corp. of America</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-18-v-630x462.jpg" data-url="https://upt.com/portfolio/random-acts-of-kindness/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">Random Acts Of Kindness</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Spacely Space Sprockets</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-12-h-630x462.jpg" data-url="https://upt.com/portfolio/shoes-for-a-week/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">Shoes For A Week</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Genco Pura Olive Oil Company</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-19-v-630x462.jpg" data-url="https://upt.com/portfolio/strangers/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+         </ul>
+         <div data-title="">Strangers</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>The New York Inquirer</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+   </div>
+   
+   <div data-cat="Modern architecture">
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-02-h-630x462.jpg" data-url="https://upt.com/portfolio/horizontal-fluid-width-fit-images/" data-target="_self"></li>
+         <ul>
+            <li>Fashion model</li>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Horizontal fluid width fit images</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>The New York Inquirers</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">8</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-08-h-630x462.jpg" data-url="https://upt.com/portfolio/a-new-view-photography/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">A New View Photography</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Good Burger</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">4</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-05-h-630x462.jpg" data-url="https://upt.com/portfolio/photo-scavenger-hunt/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Photo Scavenger Hunt</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Olivia Pope &amp; Associates</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-07-h-630x462.jpg" data-url="https://upt.com/portfolio/duotone/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Duotone</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Willy Wonka’s Factory</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-06-h-630x462.jpg" data-url="https://upt.com/portfolio/happy-days/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Happy Days</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Krusty Krab</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-15-v-630x462.jpg" data-url="https://upt.com/portfolio/traffic-lights/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Traffic Lights</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Olivia Pope &amp; Associates</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-04-h-630x462.jpg" data-url="https://upt.com/portfolio/create-a-photo-album/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Create A Photo Album</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Yoyodyne Propulsion Sys.</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-03-h-630x462.jpg" data-url="https://upt.com/portfolio/sunday-mornings/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Sunday Mornings</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Krusty Krab</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">4</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-02-h-630x462.jpg" data-url="https://upt.com/portfolio/double-exposure/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Double Exposure</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Sterling Cooper</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-17-v-630x462.jpg" data-url="https://upt.com/portfolio/faces-in-things/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Faces In Things</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Rich Industries</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-16-v-630x462.jpg" data-url="https://upt.com/portfolio/striking-silhouettes/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Striking Silhouettes</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Sirius Cybernetics Corp.</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-01-h-630x462.jpg" data-url="https://upt.com/portfolio/contrasting-styles/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Contrasting Styles</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Sirius Cybernetics Corp.</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-13-h-630x462.jpg" data-url="https://upt.com/portfolio/just-shoot-me-photographs/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Just Shoot Me Photographs</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Good Burger</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-14-h-630x462.jpg" data-url="https://upt.com/portfolio/strike-a-pose-photo-studio/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Strike a Pose Photo Studio</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Warbucks Industries</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-09-h-630x462.jpg" data-url="https://upt.com/portfolio/flutter-me-shutters-photography/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Flutter Me Shutters Photography</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Good Burger</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-10-h-630x462.jpg" data-url="https://upt.com/portfolio/the-dark-room-portrait-studio/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">The Dark Room Portrait Studio</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Yoyodyne Propulsion Sys.</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-12-h-630x462.jpg" data-url="https://upt.com/portfolio/indoor-splash-shots/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Indoor splash shots</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Wonka Industries</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-19-v-630x462.jpg" data-url="https://upt.com/portfolio/stitch-photographs-together/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Stitch photographs together</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>North Central Positronics</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-11-h-630x462.jpg" data-url="https://upt.com/portfolio/omni-consimer-products/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Omni Consimer Products</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>North Central Positronics</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-18-v-630x462.jpg" data-url="https://upt.com/portfolio/stitch-photographs-together-2/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">U.S. Robotics and Mechanical Men</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Industrial Automation</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/architect-20-v-630x462.jpg" data-url="https://upt.com/portfolio/water-drop-art/" data-target="_self"></li>
+         <ul>
+            <li>Modern architecture</li>
+         </ul>
+         <div data-title="">Water drop art</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>North Central Positronics</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+         </div>
+      </ul>
+   </div>
+
+   <div data-cat="Moment of life">
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-01-h-630x462.jpg" data-url="https://upt.com/portfolio/naked-night-photography/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">Naked night photography</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Incom Corporation</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-04-h-630x462.jpg" data-url="https://upt.com/portfolio/all-about-golden-hour-theory/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">All about golden hour theory</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Leeding Engines Ltd.</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-16-v-630x462.jpg" data-url="https://upt.com/portfolio/take-photos-like-a-profesional-dude/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">Take photos like a profesional dude</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>General Forge and Foundry</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-03-h-630x462.jpg" data-url="https://upt.com/portfolio/put-your-camera-in-manual-mode/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">Put your camera in manual mode</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Stay Puft Corporation</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-17-v-630x462.jpg" data-url="https://upt.com/portfolio/become-a-better-photographer-this-year/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">Become a better photographer this...</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Burleigh and Stronginthearm</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-07-h-630x462.jpg" data-url="https://upt.com/portfolio/getting-kids-to-look-at-the-camera/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">Getting kids to look at the camera</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Nordyne Defense Dynamics</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-15-v-630x462.jpg" data-url="https://upt.com/portfolio/why-you-should-take-a-photo-every-day-this-year/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">Why you should take a photo every...</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Sixty Second Avenue</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-05-h-630x462.jpg" data-url="https://upt.com/portfolio/the-evolution-of-self-portrait/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">The evolution of self portrait</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Spade and Archer</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-02-h-630x462.jpg" data-url="https://upt.com/portfolio/the-paper-heart-project/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">The paper heart project</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Rouster and Sideways</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-06-h-630x462.jpg" data-url="https://upt.com/portfolio/freezing-moments/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">Freezing moments</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>The New Firm</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-20-v-630x462.jpg" data-url="https://upt.com/portfolio/why-you-should-start-a-365-project-this-year/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">Why you should start a 365 project...</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Sixty Second Avenue</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-14-h-630x462.jpg" data-url="https://upt.com/portfolio/blurry-backgrounds-in-your-photography/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">Blurry backgrounds in your...</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Data Systems</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-18-v-630x462.jpg" data-url="https://upt.com/portfolio/get-in-the-frame/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">Get in the frame</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Taggart Transcontinental</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-13-h-630x462.jpg" data-url="https://upt.com/portfolio/so-you-have-a-new-camera/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">So you have a new camera?</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Big Kahuna Burger</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-19-v-630x462.jpg" data-url="https://upt.com/portfolio/choosing-color-with-intetion-in-photographs/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">Choosing color with intetion in...</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>The Frying Dutchman</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-09-h-630x462.jpg" data-url="https://upt.com/portfolio/shes-looking-for-love/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">She&#039;s looking for love</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>The Krusty Krab</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-11-h-630x462.jpg" data-url="https://upt.com/portfolio/lensbay-photography-challange/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">Lensbay photography challange</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Taco Grande</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-10-h-630x462.jpg" data-url="https://upt.com/portfolio/documenting-your-life-with-photography/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">Documenting your life with...</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Tip Top Cafe</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-12-h-630x462.jpg" data-url="https://upt.com/portfolio/fun-taking-your-next-self-portrait/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">Fun taking your next self portrait</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Demo Company</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/moment-08-h-630x462.jpg" data-url="https://upt.com/portfolio/photography-projects-ideas/" data-target="_self"></li>
+         <ul>
+            <li>Moment of life</li>
+         </ul>
+         <div data-title="">Photography projects ideas</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Demo Company</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+   </div>
+
+   <div data-cat="Travel around the world">
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-12-h-630x462.jpg" data-url="https://upt.com/portfolio/adventures-in-the-southwest-not-to-miss/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Adventures in the southwest not to...</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Strickland Propane</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-09-h-630x462.jpg" data-url="https://upt.com/portfolio/travel-arround-the-world/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Travel arround the world</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Foo Bars</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-05-h-630x462.jpg" data-url="https://upt.com/portfolio/best-vacation-ever-using-instagram/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Best vacation ever using instagram</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>ABC Telecom</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-16-v-630x462.jpg" data-url="https://upt.com/portfolio/an-intimate-location-at-villa-catalina/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">An intimate location at vila...</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Demo, inc.</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-07-h-630x462.jpg" data-url="https://upt.com/portfolio/gorgeous-places-in-itally/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Gorgeous places in itally</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Fake Brothers</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-04-h-630x462.jpg" data-url="https://upt.com/portfolio/romantic-gataways/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Romantic gataways</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Demo, inc.</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-03-h-630x462.jpg" data-url="https://upt.com/portfolio/prettiest-and-most-photogenic-places-in-the-south/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Prettiest and most photogenic...</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Allied Biscuit</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-15-v-630x462.jpg" data-url="https://upt.com/portfolio/most-walkable-places-ever/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Most walkable places ever</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Galaxy Corp</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-02-h-630x462.jpg" data-url="https://upt.com/portfolio/our-amazing-honeymoons/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Our amazing honeymoons</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Galaxy Corp</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-01-h-630x462.jpg" data-url="https://upt.com/portfolio/central-u-s-vacation-spots/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Central U.S. vacation spots</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Ankh-Sto Associates</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-06-h-630x462.jpg" data-url="https://upt.com/portfolio/this-is-how-you-spend-the-perfect-weekend-2/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">This is how you spend the perfect...</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Extensive Enterprise</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-18-v-630x462.jpg" data-url="https://upt.com/portfolio/mini-guide-to-los-cambreros/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Mini guide to los cambreros</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Foo Bars</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-10-h-630x462.jpg" data-url="https://upt.com/portfolio/the-hottest-honeymoon-destination/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Hottest vacation destination</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Mr. Sparkle</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-19-v-630x462.jpg" data-url="https://upt.com/portfolio/things-you-must-do-when-you-visit/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Things you must do when you visit</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Globo-Chem</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-13-h-630x462.jpg" data-url="https://upt.com/portfolio/better-then-any-day-story/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Better then any day story</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Globex Corporation</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-20-v-630x462.jpg" data-url="https://upt.com/portfolio/books-that-will-for-sure-make-you-happy/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Books that will for sure make you...</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Foo Bars</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">4</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-08-h-630x462.jpg" data-url="https://upt.com/portfolio/outfit-combination-to-wear-on-every-flight/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Outfit combination to wear on every...</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>LexCorp</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">3</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-11-h-630x462.jpg" data-url="https://upt.com/portfolio/vacation-guide/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Vacation guide</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>Thatherton Fuels</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-17-v-630x462.jpg" data-url="https://upt.com/portfolio/familly-vacation-tips/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Familly vacation tips</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>North Central Positronics</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/travel-14-h-630x462.jpg" data-url="https://upt.com/portfolio/fun-things-to-do-in-vacation/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Fun things to do in vacation</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>ZiffCorp</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-02-h-630x462.jpg" data-url="https://upt.com/portfolio/protected-portfolio-project/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">Portfolio project</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>The New York Inquirer</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">2</span></div>
+         </div>
+      </ul>
+      <ul>
+         <li data-thumb-src="https://upt.com/wp-content/uploads/2019/08/fashion-02-h-630x462.jpg" data-url="https://upt.com/portfolio/more-content/" data-target="_self"></li>
+         <ul>
+            <li>Travel around the world</li>
+         </ul>
+         <div data-title="">more content</div>
+         <div data-client="">
+            <div class="client"><span class="fwdicon fwdfwdicon-author"></span><span>The New York Inquirer</span></div>
+         </div>
+         <div data-likes="">
+            <div class="like"><span class="fwdicon fwdfwdicon-love"></span><span class="count">4</span></div>
+         </div>
+      </ul>
+   </div>
+
+</div>
+
+</html>
