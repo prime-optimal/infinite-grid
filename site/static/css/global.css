@@ -173,7 +173,7 @@
 }
 
 .fwdigp .PGThumbnailOverlay{
-    background-color:#FF0000;
+    background-color:#1c03ff;
 }
 
 .fwdigp .default-arrow-main{
@@ -419,7 +419,7 @@
 }
 
 .fwdigp .PGThumbnailOverlay{
-    background-color:#FF0000;
+    background-color:blue;
 }
 
 @media screen and (max-width: 600px){

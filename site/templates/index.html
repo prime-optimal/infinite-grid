@@ -10,13 +10,14 @@
             <!-- Had to put the for loop inside the gallery -->
             {% for clip in clips %}
                 <ul>
-                    <li data-thumb-src="{{ clip['thumbnail_url'] }}" data-thumb-overlay-color="#FF0000"></li>
+                    <li data-rl-src="{{ clip['server_url'] }}" data-thumb-src="{{ clip['thumbnail_url'] }}" data-thumb-overlay-color="#50C878"></li>
                     <li data-thumb-caption="{{ clip['title'] }}">
                         <p class="title">{{ clip['title'] }}</p>
                         <p class="desc">{{ clip['description'] }}</p>
                     </li>
                 </ul>
             {% endfor %}
+
         </div>
     </div>
     <!-- end -->

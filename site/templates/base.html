@@ -6,6 +6,10 @@
     <title>{% block title %}Video Player{% endblock %}</title>
     <!-- Add your CSS files and other assets here -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
 
 	</head>
 <body>
@@ -22,7 +26,7 @@
 			new FWDIGP({
 
 				// Main settings.
-				rightClickContextMenu:"developer",
+				rightClickContextMenu:"default", // changed from developer
 				instanceName:"myIGP0",
 				parentId:"myDiv",
 				mainFolderPath:"content",
@@ -33,10 +37,10 @@
 				thumbnailTransitionType:"motion",
 				autoScale:"yes",
 				paralax:"no",
-				autoScroll:"no",
-				autoScrollDirection:"right",
-				autoScrollSpeed:2,
-				enableVisitedThumbnails:"no",
+				autoScroll:"yes", // no
+				autoScrollDirection:"right", // right
+				autoScrollSpeed:1,
+				enableVisitedThumbnails:"yes", // no
 				visitedThumbnailsOverlayOpacity:.2,
 				showLookScrollButton:"yes",
 				keepThumbnailsOriginalSizeOnGridStart:"no",
@@ -45,7 +49,7 @@
 				disableThumbnailInteractivity:"no",
 				showThumbnailOverlay:"yes",
 				showThumbnailIcon:"yes",
-				openOnSingleTouch:"no",
+				openOnSingleTouch:"yes", // no
 				showCaption:"yes",
 				showCaptionOnThumbVideo:"yes",
 				maxWidth:1920,
@@ -91,7 +95,7 @@
 				vdTimeColor:"#B9B9B9",
 				vdScrubbersToolTipLabelBackgroundColor:"#FFFFFF",
 				vdScrubbersToolTipLabelFontColor:"#5a5a5a",
-				vdShowPlaybackRateButton:"no",
+				vdShowPlaybackRateButton:"yes", // no
 				vdThumbnailsPreviewWidth:110,
 				vdThumbnailsPreviewBackgroundColor:"#2e2e2e",
 				vdThumbnailsPreviewBorderColor:"#414141",
@@ -134,7 +138,7 @@
 				rlButtonsOffsetIn:10,
 				rlButtonsOffsetOut:10,
 				rlBackgroundColor:"rgba(0,0,0,1)",
-				rlShareButtons:['facebook', 'twitter', 'linkedin', 'tumblr', 'pinterest', 'reddit', 'buffer', 'digg','blogger'],
+				rlShareButtons:['facebook', 'twitter', 'reddit'], // removed dead platforms
 				rlShareText:"Share on",
 				rlSharedURL:"deeplink",
 				rlShareMainBackgroundColor:"rgba(0,0,0,.4)",
@@ -151,17 +155,17 @@
 				rlShowCaption:"yes",
 				rlCaptionPosition:"bottomout",
 				rlShowCaptionOnSmallScreens:"no",
-				rlCaptionAnimationType:"motion",
+				rlCaptionAnimationType:"opacity", // motion
 				rlUseVideo:"yes",
 				rlFillEntireScreenWithPoster:"yes",
 				rlFillEntireVideoScreen:"no",
 				rlVolume:1,
-				rlVideoAutoPlay:"no",
-				rlNextVideoAutoPlay:"no",
+				rlVideoAutoPlay:"yes", // no
+				rlNextVideoAutoPlay:"yes", // no
 				rlVideoAutoPlayText:"Click to unmute",
-				rlShowLogo:"yes",
-				rlLogoPath:"",
-				rlLogoLink:"",
+				rlShowLogo:"no", // yes
+				rlLogoPath:"", // should add a logo
+				rlLogoLink:"", // should add a link
 				rlShowDefaultControllerForVimeo:"yes",
 				rlShowScrubberWhenControllerIsHidden:"yes",
 				rlShowRewindButton:"yes",
