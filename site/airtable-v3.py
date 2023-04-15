@@ -1,6 +1,6 @@
 import os
 from pyairtable import Table
-from config import api_key, base_id, table_id
+from conf import api_key, base_id, table_id
 from datetime import datetime
 
 

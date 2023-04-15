@@ -4,7 +4,7 @@ For whatever reason, this file must be run from the terminal i.e. python app.py
 When I run it from VSCode, I get weird 404 errors because it can't find a few files.  
 
 '''
-from config import api_key, base_id, table_id
+from conf import api_key, base_id, table_id
 from pyairtable import Table
 from flask import Flask, render_template, send_from_directory
 import os
