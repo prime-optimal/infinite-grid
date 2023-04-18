@@ -1,6 +1,12 @@
-localhost
+localhost {
 
 reverse_proxy localhost:8080
-encode gzip
-templates
+#encode gzip
+#templates
+#file_server browse
+}
+
+:8181 {
+respond "port 8181"
 file_server browse
+}
