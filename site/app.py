@@ -4,14 +4,17 @@ For whatever reason, this file must be run from the terminal i.e. python app.py
 When I run it from VSCode, I get weird 404 errors because it can't find a few files.  
 
 '''
-from conf import api_key, base_id, table_id
+
 from pyairtable import Table
 from flask import Flask, render_template, send_from_directory
 import os
-import requests
-import pprint
+
+api_key = os.environ.get('API_KEY')
+base_id = os.environ.get('BASE_ID')
+table_id = os.environ.get('TABLE_ID')
 
 
+app = Flask(__name__)
 
 table = Table(api_key, base_id, table_id)
 
@@ -25,7 +28,6 @@ def fetch_records(table_id, view_name, fields=None):
         records.extend(page)
     return records
 
-app = Flask(__name__)
 
 @app.route('/')
 def home():
