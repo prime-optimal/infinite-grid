@@ -1,7 +1,5 @@
-# localhost {
-
 # This should be set to the domain when it's online, but localhost when testing locally.
-sf6.lol {
+localhost {
 
 reverse_proxy localhost:8080
 encode gzip

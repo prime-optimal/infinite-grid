@@ -5,6 +5,7 @@ When I run it from VSCode, I get weird 404 errors because it can't find a few fi
 
 '''
 
+from datetime import datetime
 from pyairtable import Table
 from flask import Flask, render_template, send_from_directory
 import os
@@ -20,7 +21,8 @@ table = Table(api_key, base_id, table_id)
 
 def fetch_records(table_id, view_name, fields=None):
     # Adding the fields we need for the template
-    fields = ["Title", "Streamer", "Thumbnail", "Server URL"]
+    fields = ["Server URL", "Title", "Streamer", "Clipped",
+             "Thumbnail", "Duration", "Clip URL", "Views"]
 
     # records has to be declared as a list first, otherwise record.get doesn't work
     records = []
@@ -30,36 +32,47 @@ def fetch_records(table_id, view_name, fields=None):
 
 
 @app.route('/')
-def home():
-    clips = []
-    view_name = "kimberly"
-    fields = ["Server URL", "Title", "Streamer", "Clipped",
-             "Thumbnail", "Duration", "Clip URL", "Views"]
-    playlist = "output/playlist.m3u"
-    filename = "output/output.txt"
-    records = fetch_records(table_id, view_name, fields)
+@app.route('/<view_name>')
+def home(view_name=None):
+    all_clips = []
+    categories = [
+        {"name": "Chun-Li", "view_name": "chunli"},
+        {"name": "Guile", "view_name": "guile"},
+        {"name": "Jamie", "view_name": "jamie"},
+        {"name": "Juri", "view_name": "juri"},
+        {"name": "Ken", "view_name": "ken"},
+        {"name": "Kimberly", "view_name": "kimberly"},
+        {"name": "Luke", "view_name": "luke"},
+        {"name": "Ryu", "view_name": "ryu"}
+    ]
+    
+    for category in categories:
+        view_name = category['view_name']
+        records = fetch_records(table_id, view_name)
+        
+        for record in records:
+            fields = record.get('fields', {})
+            title = fields.get('Title')
+            streamer = fields.get('Streamer')
+            thumbnail_url = None
+            thumbnail = fields.get('Thumbnail')
+            if thumbnail:
+                thumbnail_data = thumbnail[0]
+                thumbnails = thumbnail_data.get('thumbnails', {})
+                large_thumbnail = thumbnails.get('large')
+                if large_thumbnail:
+                    thumbnail_url = large_thumbnail.get('url')
+            server_url = fields.get('Server URL')
+            views = fields.get('Views')
+            timestamp = fields.get('Clipped')
+            datetime_obj = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%S.%fZ')
+            formatted_date = datetime_obj.strftime('%m-%d-%Y')
 
-    # Iterate through each record
-    for record in records:
-        # Extract the fields from the record
-        fields = record.get('fields', {})
+            all_clips.append({"title": title, "streamer": streamer,
+                        "thumbnail_url": thumbnail_url, "server_url": server_url,
+                        "views": views, "date": formatted_date, "view_name": view_name})
 
-        # Get the 'Title', 'Streamer', and 'Thumbnail: url' fields
-        title = fields.get('Title')
-        streamer = fields.get('Streamer')
-        thumbnail_url = None
-        thumbnail = fields.get('Thumbnail')
-        if thumbnail:
-            thumbnail_data = thumbnail[0]
-            thumbnails = thumbnail_data.get('thumbnails', {})
-            large_thumbnail = thumbnails.get('large')
-            if large_thumbnail:
-                thumbnail_url = large_thumbnail.get('url')
-        server_url = fields.get('Server URL')
-        # Add the extracted values to the clips list
-        clips.append({"title": title, "streamer": streamer, "thumbnail_url": thumbnail_url, "server_url": server_url})
-    return render_template("index.html", clips=clips)
-
+    return render_template("index.html", clips=all_clips, categories=categories)
 
 @app.route('/content/<path:subpath>')
 def serve_content(subpath):

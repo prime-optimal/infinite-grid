@@ -1,24 +1,29 @@
 {% extends "base.html" %}
 
-{% block title %}My Video Player{% endblock %}
+{% block title %}sf6.lol - Street Fighter 6 Videos and Clips.{% endblock %}
 
 {% block content %}
     <div id="myDiv"></div>
     <!-- Gallery -->
     <div id="myGallery" style="display:none">
-        <div data-cat="Multimedia gallery">
-            <!-- Had to put the for loop inside the gallery -->
-            {% for clip in clips %}
-                <ul>
-                    <li data-rl-src="{{ clip['server_url'] }}" data-thumb-src="{{ clip['thumbnail_url'] }}" data-thumb-overlay-color="#50C878"></li>
-                    <li data-thumb-caption="{{ clip['title'] }}">
-                        <p class="title">{{ clip['title'] }}</p>
-                        <p class="desc">{{ clip['description'] }}</p>
-                    </li>
-                </ul>
-            {% endfor %}
-
-        </div>
+        {% for category in categories %}
+            <div data-cat="{{ category.name }}">
+                <!-- Had to put the for loop inside the gallery -->
+                {% for clip in clips if clip['view_name'] == category.view_name %}
+                    <ul>
+                        <li data-rl-src="{{ clip['server_url'] }}" data-thumb-src="{{ clip['thumbnail_url'] }}" data-thumb-overlay-color="#50C878"></li>
+                        <li data-thumb-caption="{{ clip['title'] }} | {{ clip['streamer'] }}">
+                            <p class="title">{{ clip['title'] }}</p>
+                            <p class="desc">{{ clip['streamer'] }} | {{ clip['views'] }} views | {{ clip['date'] }}</p>
+                        </li>
+                        <li data-rl-caption="">
+                            <p class="fwdrl-title">{{ clip['title'] }}"></p>
+                            <p class="fwdrl-desc">{{ clip['streamer'] }} | {{ clip['views'] }} views | {{ clip['date'] }}</p>
+                        </li>
+                    </ul>
+                {% endfor %}
+            </div>
+        {% endfor %}
     </div>
     <!-- end -->
 {% endblock %}

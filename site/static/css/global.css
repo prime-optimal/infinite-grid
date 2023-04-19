@@ -223,6 +223,10 @@
 .fwdigp .title-default{
     overflow: visible !important;
     text-transform: uppercase;
+    position: relative !important;
+    font: bold 24px 'Josefin sans';
+    margin:0 30px 0 29px;
+    color: #FFF;
 }
 
 .fwdigp .title-default .in{
@@ -299,17 +303,20 @@
 }
 
 .fwdigp .gallery1DescP{
-    font-size:14px;
+    font-size:18px;
     margin:8px;
     margin-top:6px;
     margin-bottom:6px;
     color:#555555;
-    line-height:18px;
+    line-height:22px;
 }
 
 
 /* Grid caption. */
 .caption{
+    position: relative;
+    z-index: 1;
+    opacity: 1;
     text-align: center;
 }
 

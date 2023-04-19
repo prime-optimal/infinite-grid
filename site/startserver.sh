@@ -1,4 +1,10 @@
 #!/bin/bash
+if [ "$DEPLOY_ENV" = "production" ]; then
+    cp Caddyfile.production Caddyfile
+else
+    cp Caddyfile.local Caddyfile
+fi
+
 
 # Start Gunicorn server
 gunicorn --bind 0.0.0.0:8080 --workers=4 app:app &
