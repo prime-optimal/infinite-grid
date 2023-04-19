@@ -11,6 +11,19 @@ A small flask server that uses simple jinja2 templates to display:
 - gallery grid of still images
 
 ## Updates
+### 04-18-23
+- addedd the rest of the characters by adjusting `app.py` to include categories, which are passed to the `index.html` template.
+- changed the title and description classes to `bottomout`, which now displays the title, streamer, view count, and the date the clip was created below the video player.
+- added `app.routes` that are linked to `view_name` to pull records from specific views so now `sf6.lol/guile` will pull the `guile` view from Airtable.
+- Added `Caddyfile.production` and `Caddyfile.local` for local and production environments.
+- Added functionality to `startserver.sh` which uses the appropriate Caddyfile depending on whether its running locally or on the server. 
+- Added functionality to `startserver.sh` that uses `pkill` to end gunicorn and caddy processes. 
+
+### 04-17-23
+- got SSL working remotely through `Caddyfile`
+- Fixed a problem where videos wouldn't load when SSL was on by adjusting `Caddyfile` to point to the domain.
+- Started the process of migrating the video files to BunnyCDN by creating `bunny2.py`.
+
 ### 04-14-23
 - got the videos and thumbnails working, pulling from the API:
   - 88 videos from the "kimberly" view.
